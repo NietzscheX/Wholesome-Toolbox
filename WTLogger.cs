@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WholesomeToolbox
 {
-    internal class Logger
+    internal class WTLogger
     {
         public static void Log(string str)
         {

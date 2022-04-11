@@ -25,7 +25,7 @@ namespace WholesomeToolbox
                         local startTime, duration, _ = GetItemCooldown({itemId});
                         return duration - (GetTime() - startTime);
                     ");
-            Logger.LogError($"Couldn't find item {itemId}");
+            WTLogger.LogError($"Couldn't find item {itemId}");
             return 0;
         }
 

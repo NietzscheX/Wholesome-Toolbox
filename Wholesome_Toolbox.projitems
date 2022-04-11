@@ -12,7 +12,7 @@
     <None Include="$(MSBuildThisFileDirectory)Wholesome_Toolbox.sln" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WTLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTEffects.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTGear.cs" />

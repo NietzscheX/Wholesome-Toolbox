@@ -191,7 +191,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void TakeTramFromIronforgeToStormwind()
         {
-            Logger.Log($"Hopping on tramway to Stormwind");
+            WTLogger.Log($"Hopping on tramway to Stormwind");
             GoToTask.ToPosition(bayTramIronforgeToStormwind);
             if (ObjectManager.Me.Position.DistanceTo(bayTramIronforgeToStormwind) < 4)
             {
@@ -206,7 +206,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ExitDeeprunTramToStormwind()
         {
-            Logger.Log($"Exiting Deeprun Tram to Stormwind");
+            WTLogger.Log($"Exiting Deeprun Tram to Stormwind");
             Vector3 exitDRTram = new Vector3(64.14916, 2491.184, -4.29601, "None");
             Vector3 behindPortalDRtram = new Vector3(84.14916, 2491.184, -4.29601, "None");
             if (ObjectManager.Me.Position.DistanceTo(exitDRTram) > 5)
@@ -228,7 +228,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void EnterIronForgedDeeprunTram()
         {
-            Logger.Log($"Taking tramway to Stormwind");
+            WTLogger.Log($"Taking tramway to Stormwind");
             Vector3 entranceDRTram = new Vector3(-4838.456, -1316.167, 501.8683);
             Vector3 behindPortalDRtram = new Vector3(-4838.456, -1340.167, 501.8683);
             if (ObjectManager.Me.Position.DistanceTo(entranceDRTram) > 5)
@@ -250,7 +250,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ExitDeeprunTramToIronforge()
         {
-            Logger.Log($"Exiting Deeprun Tram to Ironforge");
+            WTLogger.Log($"Exiting Deeprun Tram to Ironforge");
             Vector3 exitDRTram = new Vector3(66.81684, 9.562094, -4.297355, "None");
             Vector3 behindPortalDRtram = new Vector3(88.81684, 9.562094, -4.297355, "None");
             if (ObjectManager.Me.Position.DistanceTo(exitDRTram) > 5)
@@ -272,7 +272,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void TakeTramFromStormwindToIronforge()
         {
-            Logger.Log($"Hopping on tramway to Ironforge");
+            WTLogger.Log($"Hopping on tramway to Ironforge");
             GoToTask.ToPosition(bayTramStormwindToIronforge);
             if (ObjectManager.Me.Position.DistanceTo(bayTramStormwindToIronforge) < 4)
             {
@@ -287,7 +287,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void EnterStormwindDeeprunTram()
         {
-            Logger.Log($"Taking tramway to Ironforge");
+            WTLogger.Log($"Taking tramway to Ironforge");
             Vector3 entranceDRTram = new Vector3(-8355.539, 525.3418, 91.79753);
             Vector3 behindPortalDRtram = new Vector3(-8330, 500.3350, 91.79753);
             if (ObjectManager.Me.Position.DistanceTo(entranceDRTram) > 5)
@@ -309,7 +309,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalBlastedLandsToOutlands()
         {
-            Logger.Log($"Traversing portal to Outlands");
+            WTLogger.Log($"Traversing portal to Outlands");
             GoToTask.ToPosition(new Vector3(-11920.39, -3206.81, -15.35475f));
             Thread.Sleep(5000);
             GoToTask.ToPosition(new Vector3(-182.5485, 1023.459, 54.23014));
@@ -321,7 +321,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelinTirisfalToOrgrimmar()
         {
-            Logger.Log($"Taking zeppelin to Orgrimmar");
+            WTLogger.Log($"Taking zeppelin to Orgrimmar");
             GoToTask.ToPosition(tirisfalPlatformZepOrgrimmar);
             if (ObjectManager.Me.Position.DistanceTo(tirisfalPlatformZepOrgrimmar) < 4)
             {
@@ -336,7 +336,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelingTirisfalToStrangelthorn()
         {
-            Logger.Log("Taking zeppelin to Stranglethorn");
+            WTLogger.Log("Taking zeppelin to Stranglethorn");
             GoToTask.ToPosition(tirisfalPlatformZepStranglethorn);
             if (ObjectManager.Me.Position.DistanceTo(tirisfalPlatformZepStranglethorn) < 4)
             {
@@ -351,7 +351,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelingStrangelthornToTirisfal()
         {
-            Logger.Log("Taking zeppelin to Tirisfal");
+            WTLogger.Log("Taking zeppelin to Tirisfal");
             GoToTask.ToPosition(stranglethornPlatformZepTirisfal);
             if (ObjectManager.Me.Position.DistanceTo(stranglethornPlatformZepTirisfal) < 4)
             {
@@ -366,7 +366,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipBootyBayToRatchet()
         {
-            Logger.Log("Taking ship to Ratchet");
+            WTLogger.Log("Taking ship to Ratchet");
             if (ObjectManager.Me.Position.X > -14260)
             {
                 // Make sure we don't swim to docks
@@ -387,7 +387,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipStormwindToDarkshore()
         {
-            Logger.Log("Taking ship to Darkshore");
+            WTLogger.Log("Taking ship to Darkshore");
             GoToTask.ToPosition(bayStormwindToDarkshore);
             if (ObjectManager.Me.Position.DistanceTo(bayStormwindToDarkshore) < 4)
             {
@@ -402,7 +402,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipMenethilToDustwallow()
         {
-            Logger.Log("Taking ship to Dustwallow Bay");
+            WTLogger.Log("Taking ship to Dustwallow Bay");
             GoToTask.ToPosition(bayMenethilToDustwallow);
             if (ObjectManager.Me.Position.DistanceTo(bayMenethilToDustwallow) < 4)
             {
@@ -417,7 +417,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipAzuremystToDarkshore()
         {
-            Logger.Log("Taking ship to Darkshore");
+            WTLogger.Log("Taking ship to Darkshore");
             GoToTask.ToPosition(bayAzuremystToDarkshore);
             if (ObjectManager.Me.Position.DistanceTo(bayAzuremystToDarkshore) < 4)
             {
@@ -432,7 +432,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipDarkshoreToAzuremyst()
         {
-            Logger.Log("Taking ship to Azuremyst");
+            WTLogger.Log("Taking ship to Azuremyst");
             GoToTask.ToPosition(bayDarkshoreToAzuremyst);
             if (ObjectManager.Me.Position.DistanceTo(bayDarkshoreToAzuremyst) < 4)
             {
@@ -449,7 +449,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalShattrathToStormwind()
         {
-            Logger.Log("Taking portal to Stormwind");
+            WTLogger.Log("Taking portal to Stormwind");
             GoToTask.ToPositionAndIntecractWithGameObject(shattrathPortalToStormwindPosition, shattrathPortalToStormwindId);
             Thread.Sleep(5000);
         }
@@ -459,7 +459,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalShattrathToIronforge()
         {
-            Logger.Log("Taking portal to Ironforge");
+            WTLogger.Log("Taking portal to Ironforge");
             GoToTask.ToPositionAndIntecractWithGameObject(shattrathPortalToIronforgePosition, shattrathPortalToIronforgeId);
             Thread.Sleep(5000);
         }
@@ -469,7 +469,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalShattrathToOrgrimmar()
         {
-            Logger.Log("Taking portal to Orgrimmar");
+            WTLogger.Log("Taking portal to Orgrimmar");
             GoToTask.ToPositionAndIntecractWithGameObject(shattrathPortalToOrgrimmarPosition, shattrathPortalToKalimdorId);
             Thread.Sleep(5000);
         }
@@ -481,7 +481,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalRutTheranToDarnassus()
         {
-            Logger.Log("Taking teleporter from Rut'Theran to Darnassus");
+            WTLogger.Log("Taking teleporter from Rut'Theran to Darnassus");
             Vector3 prep = new Vector3(8778.752, 969.5687, 30.38474, "None");
             Vector3 portal = new Vector3(8798.752, 969.5687, 30.38474, "None");
             if (ObjectManager.Me.Position.DistanceTo(prep) > 8)
@@ -503,7 +503,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipDarkShoreToRutTheran()
         {
-            Logger.Log("Taking ship to Rut'Theran");
+            WTLogger.Log("Taking ship to Rut'Theran");
             GoToTask.ToPosition(bayDarkshoreToDarnassus);
             if (ObjectManager.Me.Position.DistanceTo(bayDarkshoreToDarnassus) < 4)
             {
@@ -518,7 +518,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipDarkshoreToStormwind()
         {
-            Logger.Log("Taking ship to Stormwind");
+            WTLogger.Log("Taking ship to Stormwind");
             GoToTask.ToPosition(bayDarkshoreToStormwind);
             if (ObjectManager.Me.Position.DistanceTo(bayDarkshoreToStormwind) < 4)
             {
@@ -533,7 +533,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipDustwallowToMenethil()
         {
-            Logger.Log("Taking ship to Menethil Hardbor");
+            WTLogger.Log("Taking ship to Menethil Hardbor");
             GoToTask.ToPosition(bayDustwallowToMenethil);
             if (ObjectManager.Me.Position.DistanceTo(bayDustwallowToMenethil) < 4)
             {
@@ -548,7 +548,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipRutTheranToDarkshore()
         {
-            Logger.Log("Taking ship to Darkshore");
+            WTLogger.Log("Taking ship to Darkshore");
             GoToTask.ToPosition(bayDarnassusToDarkshore);
             if (ObjectManager.Me.Position.DistanceTo(bayDarnassusToDarkshore) < 4)
             {
@@ -564,7 +564,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalDarnassusToRutTheran()
         {
-            Logger.Log("Taking teleporter from from Darnassus to Rut'Theran");
+            WTLogger.Log("Taking teleporter from from Darnassus to Rut'Theran");
             Vector3 prep = new Vector3(9946.391, 2596.067, 1316.194, "None");
             Vector3 portal = new Vector3(9946.391, 2630.067, 1316.194, "None");
             if (ObjectManager.Me.Position.DistanceTo(prep) > 8)
@@ -586,7 +586,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalStormwindToBlastedLands()
         {
-            Logger.Log("Taking portal to Blasted lands");
+            WTLogger.Log("Taking portal to Blasted lands");
             GoToTask.ToPositionAndIntecractWithGameObject(stormwindPortalToBlastedlandsPosition, stormwindPortalToBlastedlandsId);
             Thread.Sleep(5000);
         }
@@ -596,7 +596,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipRatchetToBootyBay()
         {
-            Logger.Log("Taking ship to Booty Bay");
+            WTLogger.Log("Taking ship to Booty Bay");
             GoToTask.ToPosition(bayRatchetToBootyBay);
             if (ObjectManager.Me.Position.DistanceTo(bayRatchetToBootyBay) < 4)
             {
@@ -612,7 +612,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelinOrgrimmarToTirisfal()
         {
-            Logger.Log("Taking zeppelin to Tirisfal");
+            WTLogger.Log("Taking zeppelin to Tirisfal");
             GoToTask.ToPosition(orgrimmarPlatformZepTirisfal);
             if (ObjectManager.Me.Position.DistanceTo(orgrimmarPlatformZepTirisfal) < 4)
             {
@@ -627,7 +627,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalFromOrgrimmarToBlastedLands()
         {
-            Logger.Log("Taking portal to Blasted Lands");
+            WTLogger.Log("Taking portal to Blasted Lands");
             GoToTask.ToPositionAndIntecractWithGameObject(oGPortalToBlastedLandsPosition, oGPortalToBlastedLandsId);
             Thread.Sleep(5000);
         }
@@ -637,7 +637,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalFromSilvermoonToTirisfal()
         {
-            Logger.Log("Taking Orb of Translocation to Tirisfal");
+            WTLogger.Log("Taking Orb of Translocation to Tirisfal");
             GoToTask.ToPositionAndIntecractWithGameObject(silverMoonPortalToTirisfalPosition, silverMoonPortalToTirisfal);
             Thread.Sleep(5000);
         }
@@ -647,7 +647,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelinOrgrimmarToBoreanTundra()
         {
-            Logger.Log("Taking zeppelin to Borean Tundra");
+            WTLogger.Log("Taking zeppelin to Borean Tundra");
             GoToTask.ToPosition(kalimdorlPlatformZepBoreanTundra);
             if (ObjectManager.Me.Position.DistanceTo(kalimdorlPlatformZepBoreanTundra) < 4)
             {
@@ -662,7 +662,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ZeppelinTirisfalToHowlingFjord()
         {
-            Logger.Log("Taking zeppelin to Howling Fjord");
+            WTLogger.Log("Taking zeppelin to Howling Fjord");
             GoToTask.ToPosition(tirisfalPlatformHowlingFjord);
             if (ObjectManager.Me.Position.DistanceTo(tirisfalPlatformHowlingFjord) < 4)
             {
@@ -677,7 +677,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipStormwindToBoreanTundra()
         {
-            Logger.Log("Taking ship to Borean Tundra");
+            WTLogger.Log("Taking ship to Borean Tundra");
             GoToTask.ToPosition(bayStormwindToBoreanTundra, 0, true);
             if (ObjectManager.Me.Position.DistanceTo(bayStormwindToBoreanTundra) < 4)
             {
@@ -692,7 +692,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipMenethilToHowlingFjord()
         {
-            Logger.Log("Taking ship to Howling Fjord");
+            WTLogger.Log("Taking ship to Howling Fjord");
             GoToTask.ToPosition(bayMenethilToHowlingFjord, 0, true);
             if (ObjectManager.Me.Position.DistanceTo(bayMenethilToHowlingFjord) < 4)
             {
@@ -709,7 +709,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void ShipBoreanTundraToStormwind()
         {
-            Logger.Log("Taking ship to Stormwind");
+            WTLogger.Log("Taking ship to Stormwind");
             GoToTask.ToPosition(bayBoreanTundraToStormwind, 0, true);
             if (ObjectManager.Me.Position.DistanceTo(bayBoreanTundraToStormwind) < 4)
             {
@@ -724,7 +724,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalDalaranToUndercity()
         {
-            Logger.Log("Taking portal to Undercity");
+            WTLogger.Log("Taking portal to Undercity");
             GoToTask.ToPositionAndIntecractWithGameObject(dalaranPortalToUndercityPosition, dalaranPortalToUndercityId);
             Thread.Sleep(5000);
         }
@@ -734,7 +734,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void PortalDalaranToOrgrimmar()
         {
-            Logger.Log("Taking portal to Orgrimmar");
+            WTLogger.Log("Taking portal to Orgrimmar");
             GoToTask.ToPositionAndIntecractWithGameObject(dalaranPortalToOGPosition, dalaranPortalToOGId);
             Thread.Sleep(5000);
         }
@@ -744,7 +744,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void AlliacePortalDalaranToShattrath()
         {
-            Logger.Log("Taking portal to Shattrath");
+            WTLogger.Log("Taking portal to Shattrath");
             GoToTask.ToPositionAndIntecractWithGameObject(allianceDalaranPortalToShattrathPosition, allianceDalaranPortalToShattrathId);
             Thread.Sleep(5000);
         }
@@ -754,7 +754,7 @@ namespace WholesomeToolbox
         /// </summary>
         public static void HordePortalDalaranToShattrath()
         {
-            Logger.Log("Taking portal to Shattrath");
+            WTLogger.Log("Taking portal to Shattrath");
             GoToTask.ToPositionAndIntecractWithGameObject(dalaranPortalToShattrathPosition, dalaranPortalToShattrathId);
             Thread.Sleep(5000);
         }

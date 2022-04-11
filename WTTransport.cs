@@ -80,16 +80,16 @@ namespace WholesomeToolbox
                 ObjectManager.GetWoWGameObjectByEntry(transportId).OrderBy(o => o.GetDistance).FirstOrDefault().GetDistance2D <= distance)
                 return;
 
-            Logger.Log("Waiting for transport...");
+            WTLogger.Log("Waiting for transport...");
             // Wait for zep
             while (ObjectManager.GetWoWGameObjectByEntry(transportId).Count <= 0 ||
                 ObjectManager.GetWoWGameObjectByEntry(transportId).Count > 0 &&
                 ObjectManager.GetWoWGameObjectByEntry(transportId).OrderBy(o => o.GetDistance).FirstOrDefault().GetDistance2D > distance)
             {
                 if (ObjectManager.GetWoWGameObjectByEntry(transportId).Count <= 0)
-                    Logger.Log("The transport is not on in sight yet.");
+                    WTLogger.Log("The transport is not on in sight yet.");
                 else
-                    Logger.Log(ObjectManager.GetWoWGameObjectByEntry(transportId).OrderBy(o => o.GetDistance).FirstOrDefault().GetDistance2D.ToString());
+                    WTLogger.Log(ObjectManager.GetWoWGameObjectByEntry(transportId).OrderBy(o => o.GetDistance).FirstOrDefault().GetDistance2D.ToString());
                 Thread.Sleep(5000);
             }
 
@@ -109,7 +109,7 @@ namespace WholesomeToolbox
         {
             if (ObjectManager.Me.InTransport)
             {
-                Logger.Log("Waiting inside transport...");
+                WTLogger.Log("Waiting inside transport...");
                 while (ObjectManager.Me.Position.DistanceTo(arrivalPoint) > distance)
                 {
                     Thread.Sleep(5000);
@@ -118,7 +118,7 @@ namespace WholesomeToolbox
                 ForceMoveTo(arrivalPoint);
             }
             else
-                Logger.Log("ERROR : Not on transport");
+                WTLogger.Log("ERROR : Not on transport");
         }
 
         /// <summary>

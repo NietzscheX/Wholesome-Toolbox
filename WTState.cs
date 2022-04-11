@@ -33,7 +33,7 @@ namespace WholesomeToolbox
 
                     if (stateToReplace == null)
                     {
-                        Logger.LogError($"Couldn't find state {inPlaceOf}");
+                        WTLogger.LogError($"Couldn't find state {inPlaceOf}");
                         return;
                     }
 
@@ -52,7 +52,7 @@ namespace WholesomeToolbox
                 }
                 catch (Exception ex)
                 {
-                    Logger.LogError("AddState Error : {0}" + ex.ToString());
+                    WTLogger.LogError("AddState Error : {0}" + ex.ToString());
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace WholesomeToolbox
                 }
                 catch (Exception ex)
                 {
-                    Logger.LogError("Erreur : {0}" + ex.ToString());
+                    WTLogger.LogError("Erreur : {0}" + ex.ToString());
                 }
             }
         }

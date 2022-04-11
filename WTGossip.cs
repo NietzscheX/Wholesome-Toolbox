@@ -74,7 +74,7 @@ namespace WholesomeToolbox
         /// <param name="spellName"></param>
         public static void LearnSpellByName(string spellName)
         {
-            Logger.Log($"Learning spell {spellName}");
+            WTLogger.Log($"Learning spell {spellName}");
             Lua.LuaDoString($@"
                 for i=1,GetNumTrainerServices() do
                     local name = GetTrainerServiceInfo(i)
@@ -113,7 +113,7 @@ namespace WholesomeToolbox
         public static void BuyItem(string itemName, int amount, int stackValue)
         {
             double numberOfStacksToBuy = Math.Ceiling(amount / (double)stackValue);
-            Logger.Log($"Buying {amount} x {itemName}");
+            WTLogger.Log($"Buying {amount} x {itemName}");
             Lua.LuaDoString(string.Format(@"
                     local itemName = ""{0}""
                     local quantity = {1}
