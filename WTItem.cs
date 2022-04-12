@@ -1,5 +1,4 @@
-﻿using robotManager.Helpful;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using wManager.Wow.Helpers;
 using wManager.Wow.ObjectManager;

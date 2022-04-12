@@ -12,13 +12,13 @@
     <None Include="$(MSBuildThisFileDirectory)Wholesome_Toolbox.sln" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)WTLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTEffects.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTGear.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTGossip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WTLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTLua.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTPathFinder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTPlayer.cs" />
