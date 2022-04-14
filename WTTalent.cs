@@ -164,6 +164,9 @@ namespace WholesomeToolbox
                             return;
                         }
 
+                        if (_pointsToAssignInTalent <= 0)
+                            return;
+
                         if (talent.CurrentRank > _pointsToAssignInTalent && talentCodes.Last().Equals(talentsCode))
                         {
                             WTLogger.LogError($@"WARNING: Your assigned talent points don't match your talent code. 
