@@ -187,8 +187,6 @@ namespace WholesomeToolbox
                             // loop for individual talent rank
                             for (int j = 0; j < _pointsToAssignInTalent - talent.CurrentRank; j++)
                             {
-                                if (!Main.isLaunched)
-                                    return;
                                 Lua.LuaDoString($"LearnTalent({k}, {talentNumber})");
                                 Thread.Sleep(500 + Usefuls.Latency);
                                 WTLogger.Log($@"Assigned talent: {talent.Name}: {GetTalentRank(k, talentNumber)}/{ _pointsToAssignInTalent}");

@@ -44,7 +44,7 @@ namespace WholesomeToolbox
         public static bool HasPoisonDebuff(string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<bool>
-                (@$"for i=1,{loops} do 
+                ($@"for i=1,{loops} do 
 	                    local _, _, _, _, d  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
 	                    if d == 'Poison' then
                             return true
@@ -60,7 +60,7 @@ namespace WholesomeToolbox
         public static bool HasDiseaseDebuff(string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<bool>
-                (@$"for i=1,{loops} do 
+                ($@"for i=1,{loops} do 
 	                    local _, _, _, _, d  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
 	                    if d == 'Disease' then
                             return true
@@ -76,7 +76,7 @@ namespace WholesomeToolbox
         public static bool HasCurseDebuff(string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<bool>
-                (@$"for i=1,{loops} do 
+                ($@"for i=1,{loops} do 
 	                    local _, _, _, _, d  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
 	                    if d == 'Curse' then
                             return true
@@ -92,7 +92,7 @@ namespace WholesomeToolbox
         public static bool HasMagicDebuff(string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<bool>
-                (@$"for i=1,{loops} do 
+                ($@"for i=1,{loops} do 
 	                    local _, _, _, _, d  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
 	                    if d == 'Magic' then
                             return true
@@ -109,7 +109,7 @@ namespace WholesomeToolbox
         public static int CountBuffStacks(string buffName, string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<int>
-                (@$"for i=1,{loops} do
+                ($@"for i=1,{loops} do
                         local n, _, _, c, _  = UnitBuff(""{unit.EscapeLuaString()}"",i);
                         if n == ""{buffName.EscapeLuaString()}"" then
                             return c
@@ -126,7 +126,7 @@ namespace WholesomeToolbox
         public static int BuffTimeLeft(string buffName, string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<int>
-                (@$"for i=1,{loops} do
+                ($@"for i=1,{loops} do
                         local n, _, _, _, _, duration, _  = UnitBuff(""{unit.EscapeLuaString()}"",i);
                         if n == ""{buffName.EscapeLuaString()}"" then
                             return duration
@@ -143,7 +143,7 @@ namespace WholesomeToolbox
         public static int DeBuffTimeLeft(string debuffName, string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<int>
-                (@$"for i=1,{loops} do
+                ($@"for i=1,{loops} do
                         local n, _, _, _, _, _, expirationTime  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
                         if n == ""{debuffName.EscapeLuaString()}"" then
                             return expirationTime
@@ -160,7 +160,7 @@ namespace WholesomeToolbox
         public static int CountDebuff(string debuffName, string unit = "player", int loops = 25)
         {
             return Lua.LuaDoString<int>
-                (@$"for i=1,{loops} do
+                ($@"for i=1,{loops} do
                         local n, _, _, c, _  = UnitDebuff(""{unit.EscapeLuaString()}"",i);
                         if n == ""{debuffName.EscapeLuaString()}"" then
                             return c
