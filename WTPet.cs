@@ -72,7 +72,7 @@ namespace WholesomeToolbox
         /// <returns>true if the pet spell is on auto cast</returns>
         public static bool PetSpellIsAutocast(int petSpellIndex)
         {
-             return Lua.LuaDoString<bool>(@$"
+             return Lua.LuaDoString<bool>($@"
                     local _, autostate = GetSpellAutocast({petSpellIndex}, 'pet'); 
                     return autostate == 1;
                 ");             
