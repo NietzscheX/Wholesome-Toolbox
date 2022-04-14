@@ -6,12 +6,13 @@
     <SharedGUID>a9de1156-9128-4f74-952c-0b2eee692ae4</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Wholesome_Toolbox</Import_RootNamespace>
+    <Import_RootNamespace>WholesomeToolbox</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Wholesome_Toolbox.sln" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)WTCombat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTEffects.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTGear.cs" />
@@ -21,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)WTLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTLua.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTPathFinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WTPet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTQuestLog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTSettings.cs" />

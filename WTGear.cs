@@ -1,4 +1,5 @@
 ﻿using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
 
 namespace WholesomeToolbox
 {
@@ -31,5 +32,24 @@ namespace WholesomeToolbox
                 end
             ");
         }
+
+        /// <summary>
+        /// Gets the type of main hand weapon of the unit (default to player) ex : Daggers
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns>weapon type</returns>
+        public static string GetMainHandWeaponType(string unit = "player")
+        {
+            return Lua.LuaDoString<string>($@"
+                    local _, _, _, _, _, _, weapontype = GetItemInfo(GetInventoryItemLink(""{unit.EscapeLuaString()}"", 16)); 
+                    return weapontype;"
+                );
+        }
+
+        /// <summary>
+        /// Check if the player has a range weapon equipped (wand, bow, gun)
+        /// </summary>
+        /// <returns>true if the player has a ranged weapon equipped</returns>
+        public static bool HaveRangedWeaponEquipped => ObjectManager.Me.GetEquipedItemBySlot(wManager.Wow.Enums.InventorySlot.INVSLOT_RANGED) != 0;
     }
 }

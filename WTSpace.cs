@@ -1,8 +1,9 @@
 ﻿using robotManager.Helpful;
 using System.Collections.Generic;
 using System.Linq;
+using wManager.Wow.ObjectManager;
 
-namespace Wholesome_Toolbox
+namespace WholesomeToolbox
 {
     /// <summary>
     /// Space and vector related methods
@@ -62,6 +63,24 @@ namespace Wholesome_Toolbox
                 centerVector += position;
             }
             return centerVector /= positions.Count;
+        }
+
+        /// <summary>
+        /// Get the position behind the target at the specified distance. Can be useful for rogue/druid opener or mage/hunter backpedal.
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="unit"></param>
+        /// <param name="distance"></param>
+        /// <returns>The position behind the target</returns>
+        public static Vector3 BackOfUnit(WoWUnit unit, float distance)
+        {
+            if (unit != null)
+            {
+                Vector3 unitPosition = unit.Position;
+                float rotation = -Math.DegreeToRadian(Math.RadianToDegree(unit.Rotation) + 90);
+                return new Vector3((System.Math.Sin(rotation) * distance) + unitPosition.X, (System.Math.Cos(rotation) * distance) + unitPosition.Y, unitPosition.Z);
+            }
+            return new Vector3(0, 0, 0);
         }
     }
 }

@@ -154,5 +154,27 @@ namespace WholesomeToolbox
             }, (int)ContinentId.Expansion01, OffMeshConnectionType.Bidirectional, true));
             OffMeshConnections.Save();
         }
+
+        /// <summary>
+        /// Set WRobot setting Ground Mount
+        /// </summary>
+        /// <param name="mountName"></param>
+        public static void SetGroundMount(string mountName)
+        {
+            wManagerSetting.CurrentSetting.GroundMountName = mountName;
+            wManagerSetting.CurrentSetting.Save();
+            WTLogger.Log($"Setting ground mount to {mountName}");
+        }
+
+        /// <summary>
+        /// Set WRobot setting Flying Mount
+        /// </summary>
+        /// <param name="mountName"></param>
+        public static void SetFlyingMount(string mountName)
+        {
+            wManagerSetting.CurrentSetting.FlyingMountName = mountName;
+            wManagerSetting.CurrentSetting.Save();
+            WTLogger.Log($"Setting flying mount to {mountName}");
+        }
     }
 }

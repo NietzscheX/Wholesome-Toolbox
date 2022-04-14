@@ -1,4 +1,5 @@
 ﻿using robotManager.Helpful;
+using System;
 using wManager.Wow.Enums;
 using wManager.Wow.Helpers;
 using wManager.Wow.ObjectManager;
@@ -120,6 +121,29 @@ namespace WholesomeToolbox
                     local isInstance, instanceType = IsInInstance();
                     return instanceType ~= 'none';
                 ");
+        }
+
+        /// <summary>
+        /// Returns the player's corpse position
+        /// </summary>
+        /// <param name="corpse"></param>
+        /// <returns>The player's corpse Vector3</returns>
+        public static Vector3 GetCorpsePosition(WoWCorpse corpse)
+        {
+            try
+            {
+                uint baseAddress = corpse.GetBaseAddress;
+                const ushort positionOffset = 0xE8;
+                float x = wManager.Wow.Memory.WowMemory.Memory.ReadFloat(baseAddress + positionOffset + 0x00);
+                float y = wManager.Wow.Memory.WowMemory.Memory.ReadFloat(baseAddress + positionOffset + 0x04);
+                float z = wManager.Wow.Memory.WowMemory.Memory.ReadFloat(baseAddress + positionOffset + 0x08);
+                return new Vector3(x, y, z);
+            }
+            catch (Exception e)
+            {
+                WTLogger.LogError("Failed to read corpse position: " + e.Message);
+            }
+            return new Vector3(0, 0, 0);
         }
     }
 }
