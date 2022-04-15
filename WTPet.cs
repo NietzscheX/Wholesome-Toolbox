@@ -85,5 +85,15 @@ namespace WholesomeToolbox
                 local happiness, damagePercentage, loyaltyRate = GetPetHappiness();
                 return happiness;
             ");
+
+        /// <summary>
+        /// Feeds your pet with the sepcified food
+        /// </summary>
+        /// <param name="foodName"></param>
+        public static void TBCFeedPet(string foodName)
+        {
+            Lua.LuaDoString("CastSpellByName('Feed Pet');");
+            Lua.LuaDoString($@"UseItemByName(""{foodName.EscapeLuaString()}"");");
+        }
     }
 }

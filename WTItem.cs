@@ -172,5 +172,7 @@ namespace WholesomeToolbox
             }
             return false;
         }
+
+        public static int GetNbItems(string itemName) => Lua.LuaDoString<int>($@"return GetItemCount(""{itemName.EscapeLuaString()}"");");
     }
 }

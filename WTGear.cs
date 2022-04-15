@@ -47,6 +47,35 @@ namespace WholesomeToolbox
         }
 
         /// <summary>
+        /// Returns true if the player has an offhand weapon equipped
+        /// </summary>
+        public static bool HaveOffHandWeaponEquipped => Lua.LuaDoString<bool>("return OffhandHasWeapon()");
+
+        /// <summary>
+        /// Returns whether the player has an enchant or poison on their main hand weapon
+        /// </summary>
+        /// <returns>true if the weapon has an enchant</returns>
+        public static bool HaveMainHandEnchant()
+        {
+            return Lua.LuaDoString<bool>($@"
+                local hasMainHandEnchant = GetWeaponEnchantInfo();
+                return hasMainHandEnchant;
+            ");
+        }
+
+        /// <summary>
+        /// Returns whether the player has an enchant or poison on their off hand weapon
+        /// </summary>
+        /// <returns>true if the weapon has an enchant</returns>
+        public static bool HaveOffHandEnchant()
+        {
+            return Lua.LuaDoString<bool>($@"
+                local _, _, _, _, hasOffHandEnchant = GetWeaponEnchantInfo();
+                return hasOffHandEnchant;
+            ");
+        }
+
+        /// <summary>
         /// Check if the player has a range weapon equipped (wand, bow, gun)
         /// </summary>
         /// <returns>true if the player has a ranged weapon equipped</returns>

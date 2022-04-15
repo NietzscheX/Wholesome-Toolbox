@@ -18,6 +18,6 @@ namespace WholesomeToolbox
         /// Returns the current WoW version
         /// </summary>
         /// <returns>WoW version (ex: "2.4.3")</returns>
-        public static string GetWoWVersion => Lua.LuaDoString<string>("v, _, _, _ = GetBuildInfo(); return v");
+        public static string GetWoWVersion => Lua.LuaDoString<string>("local v, _, _, _ = GetBuildInfo(); return v");
     }
 }

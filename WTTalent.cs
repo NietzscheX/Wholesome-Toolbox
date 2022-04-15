@@ -117,9 +117,13 @@ namespace WholesomeToolbox
                 return;
             }
 
+            int nbUnspentTalentPoints = NbUnspentTalentPoints;
+
             // Loop for each TalentCode in list
             foreach (string talentsCode in talentCodes)
             {
+                if (nbUnspentTalentPoints <= 0) return;
+
                 // check if talent code length is correct
                 if ((numTalentsInTrees[0] + numTalentsInTrees[1] + numTalentsInTrees[2]) != talentsCode.Length)
                 {
@@ -131,18 +135,20 @@ namespace WholesomeToolbox
 
                 // TalentCode per tree
                 List<string> TalentCodeTrees = new List<string>()
-                    {
-                        talentsCode.Substring(0, numTalentsInTrees[0]),
-                        talentsCode.Substring(numTalentsInTrees[0], numTalentsInTrees[1]),
-                        talentsCode.Substring(numTalentsInTrees[0] + numTalentsInTrees[1], numTalentsInTrees[2])
-                    };
+                {
+                    talentsCode.Substring(0, numTalentsInTrees[0]),
+                    talentsCode.Substring(numTalentsInTrees[0], numTalentsInTrees[1]),
+                    talentsCode.Substring(numTalentsInTrees[0] + numTalentsInTrees[1], numTalentsInTrees[2])
+                };
 
                 // loop in 3 trees
                 for (int k = 1; k <= 3; k++)
                 {
+                    if (nbUnspentTalentPoints <= 0) return;
                     // loop for each talent
                     for (int i = 0; i < numTalentsInTrees[k - 1]; i++)
                     {
+                        if (nbUnspentTalentPoints <= 0) return;
                         int talentNumber = i + 1;
                         ToolboxTalent talent = GetTalentObject(k, talentNumber);
 
@@ -163,9 +169,6 @@ namespace WholesomeToolbox
                                     talent code {TalentCodeTrees[k - 1]}");
                             return;
                         }
-
-                        if (_pointsToAssignInTalent <= 0)
-                            return;
 
                         if (talent.CurrentRank > _pointsToAssignInTalent && talentCodes.Last().Equals(talentsCode))
                         {
@@ -193,8 +196,7 @@ namespace WholesomeToolbox
                                 Lua.LuaDoString($"LearnTalent({k}, {talentNumber})");
                                 Thread.Sleep(500 + Usefuls.Latency);
                                 WTLogger.Log($@"Assigned talent: {talent.Name}: {GetTalentRank(k, talentNumber)}/{ _pointsToAssignInTalent}");
-                                if (NbUnspentTalentPoints <= 0)
-                                    return;
+                                nbUnspentTalentPoints = NbUnspentTalentPoints;
                             }
                         }
                     }
