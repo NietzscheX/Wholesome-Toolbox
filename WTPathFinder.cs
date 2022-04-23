@@ -1,5 +1,7 @@
 ﻿using robotManager.Helpful;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using wManager.Wow.Helpers;
 using wManager.Wow.ObjectManager;
 
@@ -96,6 +98,43 @@ namespace WholesomeToolbox
                 }
             }
             return result;
+        }
+
+        /// <summary>
+        /// Makes a new path to rejoin a set path from the player's location to its closest node
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>New path from the player to the set path</returns>
+        public static List<Vector3> PathFromClosestPoint(List<Vector3> path)
+        {
+            var sortingList = new Tuple<ushort, Vector3>[path.Count];
+
+            for (ushort i = 0; i < path.Count; i++) sortingList[i] = new Tuple<ushort, Vector3>(i, path[i]);
+
+            Vector3 myPosition = ObjectManager.Me.PositionWithoutType;
+            ushort startIndex = sortingList.OrderBy(tuple => tuple.Item2.DistanceTo(myPosition))
+                .FirstOrDefault(tuple => !TraceLine.TraceLineGo(tuple.Item2))?.Item1 ?? 0;
+
+            if (startIndex != 0) WTLogger.Log($"Skipped the first {startIndex} steps of the path.");
+
+            return startIndex != 0 ? path.GetRange(startIndex, path.Count - startIndex) : path;
+        }
+
+        /// <summary>
+        /// Calculates the total distance of a path
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns>Total distance of a path in yards</returns>
+        public static float CalculatePathTotalDistance(Vector3 from, Vector3 to)
+        {
+            float distance = 0.0f;
+            List<Vector3> path = PathFinder.FindPath(from, to, false);
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                distance += path[i].DistanceTo(path[i + 1]);
+            }
+            return distance;
         }
     }
 }
