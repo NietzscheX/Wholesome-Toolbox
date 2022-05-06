@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)WTQuestLog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTSpace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WTSpell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTTalent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WTTaxi.cs" />
