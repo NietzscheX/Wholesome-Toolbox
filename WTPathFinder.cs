@@ -112,12 +112,23 @@ namespace WholesomeToolbox
             for (ushort i = 0; i < path.Count; i++) sortingList[i] = new Tuple<ushort, Vector3>(i, path[i]);
 
             Vector3 myPosition = ObjectManager.Me.PositionWithoutType;
-            ushort startIndex = sortingList.OrderBy(tuple => tuple.Item2.DistanceTo(myPosition))
-                .FirstOrDefault(tuple => !TraceLine.TraceLineGo(tuple.Item2))?.Item1 ?? 0;
+            List<Tuple<ushort, Vector3>> tupleList = sortingList
+                .OrderBy(tuple => tuple.Item2.DistanceTo(myPosition))
+                .ToList();
+            Tuple<ushort, Vector3> selectedTuple;
+            // make sure we select the furthest in path
+            if (tupleList.Count > 1 && tupleList[1].Item1 > tupleList[0].Item1)
+            {
+                selectedTuple = tupleList[1];
+            }
+            else
+            {
+                selectedTuple = tupleList[0];
+            }
 
-            if (startIndex != 0) WTLogger.Log($"Skipped the first {startIndex} steps of the path.");
+            if (selectedTuple.Item1 != 0) WTLogger.Log($"Skipped the first {selectedTuple.Item1} steps of the path.");
 
-            return startIndex != 0 ? path.GetRange(startIndex, path.Count - startIndex) : path;
+            return path.GetRange(selectedTuple.Item1, path.Count - selectedTuple.Item1);
         }
 
         /// <summary>
@@ -130,6 +141,22 @@ namespace WholesomeToolbox
         {
             float distance = 0.0f;
             List<Vector3> path = PathFinder.FindPath(from, to, false);
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                distance += path[i].DistanceTo(path[i + 1]);
+            }
+            return distance;
+        }
+
+        /// <summary>
+        /// Calculates the total distance of a path
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns>Total distance of a path in yards</returns>
+        public static float CalculatePathTotalDistance(List<Vector3> path)
+        {
+            float distance = 0.0f;
             for (int i = 0; i < path.Count - 1; i++)
             {
                 distance += path[i].DistanceTo(path[i + 1]);
