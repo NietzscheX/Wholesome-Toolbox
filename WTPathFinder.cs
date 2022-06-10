@@ -126,9 +126,15 @@ namespace WholesomeToolbox
                 selectedTuple = tupleList[0];
             }
 
-            if (selectedTuple.Item1 != 0) WTLogger.Log($"Skipped the first {selectedTuple.Item1} steps of the path.");
+            List<Vector3> finalPath = PathFinder.FindPath(selectedTuple.Item2);
 
-            return path.GetRange(selectedTuple.Item1, path.Count - selectedTuple.Item1);
+            string message = "";
+            if (selectedTuple.Item1 != 0) message += $"Skipped the first {selectedTuple.Item1} steps of the path. ";
+            if (finalPath.Count > 1) message += $"Adjusted {finalPath.Count} nodes. ";
+
+            finalPath.AddRange(path.GetRange(selectedTuple.Item1 + 1, path.Count - selectedTuple.Item1 - 1));
+
+            return finalPath;
         }
 
         /// <summary>
