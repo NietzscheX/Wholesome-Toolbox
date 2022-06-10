@@ -131,6 +131,7 @@ namespace WholesomeToolbox
             string message = "";
             if (selectedTuple.Item1 != 0) message += $"Skipped the first {selectedTuple.Item1} steps of the path. ";
             if (finalPath.Count > 1) message += $"Adjusted {finalPath.Count} nodes. ";
+            WTLogger.Log(message);
 
             finalPath.AddRange(path.GetRange(selectedTuple.Item1 + 1, path.Count - selectedTuple.Item1 - 1));
 
