@@ -155,7 +155,7 @@ namespace WholesomeToolbox
             // Bootay bay water
             OffMeshConnections.Add(new OffMeshConnection(new List<Vector3>()
             {
-                new Vector3(-14427.64, 462.951, -1.862247, "None"),
+                new Vector3(-14427.64, 462.951, -1.862247, "Swimming"),
                 new Vector3(-14439.08, 455.1722, 3.748821, "None")
             }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true));
 
