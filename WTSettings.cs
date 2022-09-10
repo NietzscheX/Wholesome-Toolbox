@@ -157,7 +157,7 @@ namespace WholesomeToolbox
             {
                 new Vector3(-14427.64, 462.951, -1.862247, "None"),
                 new Vector3(-14439.08, 455.1722, 3.748821, "None")
-            }, (int)ContinentId., OffMeshConnectionType.Bidirectional, true));
+            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true));
 
             OffMeshConnections.Save();
         }
