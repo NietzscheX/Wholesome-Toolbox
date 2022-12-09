@@ -263,6 +263,24 @@ namespace WholesomeToolbox
                 ContinentId.Azeroth,
                 "Undercity elevator UP");
 
+            AddTransportOffMesh(new Vector3(-5163.785, 659.9605, 348.2786, "None"), // wait for transport
+                new Vector3(-5164.513, 649.135, 348.2701, "None"), // Step in
+                new Vector3(-5164.24, 650.354, 349.52, "None"), // Object departure
+                new Vector3(-5164.24, 650.354, 249.4379, "None"), // Object arrival
+                new Vector3(-5163.098, 663.078, 247.7668, "None"), // Step out
+                80023,
+                ContinentId.Azeroth,
+                "Gnomeregan elevator DOWN");
+
+            AddTransportOffMesh(new Vector3(-5163.098, 663.078, 247.7668, "None"), // wait for transport
+                new Vector3(-5163.874, 649.5927, 248.1893, "None"), // Step in
+                new Vector3(-5164.24, 650.354, 249.4379, "None"), // Object departure
+                new Vector3(-5164.24, 650.354, 349.52, "None"), // Object arrival
+                new Vector3(-5163.785, 659.9605, 348.2786, "None"), // Step out
+                80023,
+                ContinentId.Azeroth,
+                "Gnomeregan elevator UP");
+
             OffMeshConnections.Save();
         }
     }
