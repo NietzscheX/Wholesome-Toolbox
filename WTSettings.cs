@@ -30,14 +30,20 @@ namespace WholesomeToolbox
         /// <param name="itemNames"></param>
         public static void AddToDoNotSellList(List<string> itemNames)
         {
+            bool settingsCHanged = false;
             foreach (string itemName in itemNames)
             {
                 if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
                     wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
+                    settingsCHanged = true;
                 }
             }
-            wManagerSetting.CurrentSetting.Save();
+
+            if (settingsCHanged)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
         }
 
 
@@ -60,14 +66,20 @@ namespace WholesomeToolbox
         /// <param name="itemNames"></param>
         public static void RemoveFromDoNotSellList(List<string> itemNames)
         {
+            bool settingsCHanged = false;
             foreach (string itemName in itemNames)
             {
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
+                    settingsCHanged = true;
                 }
             }
-            wManagerSetting.CurrentSetting.Save();
+
+            if (settingsCHanged)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
         }
 
         /// <summary>
