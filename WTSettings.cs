@@ -24,13 +24,13 @@ namespace WholesomeToolbox
 
                 if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.log($"Adding {itemName} to DoNotSell list");
+                    WTLogger.Log($"Adding {itemName} to DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
                     newSettings = true;
                 }
                 if (!wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
                 {
-                    WTLogger.log($"Adding {itemName} to DoNotMail list");
+                    WTLogger.Log($"Adding {itemName} to DoNotMail list");
                     wManagerSetting.CurrentSetting.DoNotMailList.Add(itemName);
                     newSettings = true;
                 }
@@ -55,13 +55,13 @@ namespace WholesomeToolbox
 
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.log($"Removing {itemName} from DoNotSell list");
+                    WTLogger.Log($"Removing {itemName} from DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
                     newSettings = true;
                 }
                 if (wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
                 {
-                    WTLogger.log($"Removing {itemName} from DoNotMail list");
+                    WTLogger.Log($"Removing {itemName} from DoNotMail list");
                     wManagerSetting.CurrentSetting.DoNotMailList.Remove(itemName);
                     newSettings = true;
                 }
@@ -95,7 +95,7 @@ namespace WholesomeToolbox
 
                 if (!wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
                 {
-                    WTLogger.log($"Adding {itemName} to DoNotMail list");
+                    WTLogger.Log($"Adding {itemName} to DoNotMail list");
                     wManagerSetting.CurrentSetting.DoNotMailList.Add(itemName);
                     settingsChanged = true;
                 }
@@ -129,7 +129,7 @@ namespace WholesomeToolbox
 
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.log($"Removing {item.Name} from DoNotMail list");
+                    WTLogger.Log($"Removing {item.Name} from DoNotMail list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
                     settingsChanged = true;
                 }
@@ -163,7 +163,7 @@ namespace WholesomeToolbox
 
                 if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.log($"Adding {itemName} to DoNotSell list");
+                    WTLogger.Log($"Adding {itemName} to DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
                     settingsChanged = true;
                 }
@@ -197,7 +197,7 @@ namespace WholesomeToolbox
 
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.log($"Removing {item.Name} from DoNotSell list");
+                    WTLogger.Log($"Removing {item.Name} from DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
                     settingsChanged = true;
                 }
