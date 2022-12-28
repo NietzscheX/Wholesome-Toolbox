@@ -12,16 +12,142 @@ namespace WholesomeToolbox
     public class WTSettings
     {
         /// <summary>
+        /// Adds items to the DoNotMailList and DoNotSellList and saves
+        /// </summary>
+        /// <param name="itemNames"></param>
+        public static void AddItemToDoNotSellAndMailList(List<string> itemNames)
+        {
+            bool newSettings = false;
+            foreach (string itemName in itemNames)
+            {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
+                if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
+                {
+                    WTLogger.log($"Adding {itemName} to DoNotSell list");
+                    wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
+                    newSettings = true;
+                }
+                if (!wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
+                {
+                    WTLogger.log($"Adding {itemName} to DoNotMail list");
+                    wManagerSetting.CurrentSetting.DoNotMailList.Add(itemName);
+                    newSettings = true;
+                }
+            }
+
+            if (newSettings)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
+        }
+
+        /// <summary>
+        /// Removes items from the DoNotMailList and DoNotSellList and saves
+        /// </summary>
+        /// <param name="itemNames"></param>
+        public static void RemoveItemFromDoNotSellAndMailList(List<string> itemNames)
+        {
+            bool newSettings = false;
+            foreach (string itemName in itemNames)
+            {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
+                if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
+                {
+                    WTLogger.log($"Removing {itemName} from DoNotSell list");
+                    wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
+                    newSettings = true;
+                }
+                if (wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
+                {
+                    WTLogger.log($"Removing {itemName} from DoNotMail list");
+                    wManagerSetting.CurrentSetting.DoNotMailList.Remove(itemName);
+                    newSettings = true;
+                }
+            }
+
+            if (newSettings)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
+        }
+
+        /// <summary>
+        /// Adds an item to the DoNotMailList and saves
+        /// </summary>
+        /// <param name="itemName"></param>
+        public static void AddToDoNotMailList(string itemName)
+        {
+            AddToDoNotMailList(new List<string>() { itemName });
+        }
+
+        /// <summary>
+        /// Adds items to the DoNotMailList and saves
+        /// </summary>
+        /// <param name="itemNames"></param>
+        public static void AddToDoNotMailList(List<string> itemNames)
+        {
+            bool settingsChanged = false;
+            foreach (string itemName in itemNames)
+            {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
+                if (!wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
+                {
+                    WTLogger.log($"Adding {itemName} to DoNotMail list");
+                    wManagerSetting.CurrentSetting.DoNotMailList.Add(itemName);
+                    settingsChanged = true;
+                }
+            }
+
+            if (settingsChanged)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
+        }
+
+        /// <summary>
+        /// Removes an item to the DoNotMailList and saves
+        /// </summary>
+        /// <param name="itemName"></param>
+        public static void RemoveFromDoNotMailList(string itemName)
+        {
+            RemoveFromDoNotMailList(new List<string>() { itemName });
+        }
+
+        /// <summary>
+        /// Remove items from the DoNotMailList and saves
+        /// </summary>
+        /// <param name="itemNames"></param>
+        public static void RemoveFromDoNotMailList(List<string> itemNames)
+        {
+            bool settingsChanged = false;
+            foreach (string itemName in itemNames)
+            {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
+                if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
+                {
+                    WTLogger.log($"Removing {item.Name} from DoNotMail list");
+                    wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
+                    settingsChanged = true;
+                }
+            }
+
+            if (settingsChanged)
+            {
+                wManagerSetting.CurrentSetting.Save();
+            }
+        }
+
+        /// <summary>
         /// Adds an item to the DoNotSellList and saves
         /// </summary>
         /// <param name="itemName"></param>
         public static void AddToDoNotSellList(string itemName)
         {
-            if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
-            {
-                wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
-                wManagerSetting.CurrentSetting.Save();
-            }
+            AddToDoNotSellList(new List<string>() { itemName });
         }
 
         /// <summary>
@@ -30,22 +156,24 @@ namespace WholesomeToolbox
         /// <param name="itemNames"></param>
         public static void AddToDoNotSellList(List<string> itemNames)
         {
-            bool settingsCHanged = false;
+            bool settingsChanged = false;
             foreach (string itemName in itemNames)
             {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
                 if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
+                    WTLogger.log($"Adding {itemName} to DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Add(itemName);
-                    settingsCHanged = true;
+                    settingsChanged = true;
                 }
             }
 
-            if (settingsCHanged)
+            if (settingsChanged)
             {
                 wManagerSetting.CurrentSetting.Save();
             }
         }
-
 
         /// <summary>
         /// Removes an item to the DoNotSellList and saves
@@ -53,11 +181,7 @@ namespace WholesomeToolbox
         /// <param name="itemName"></param>
         public static void RemoveFromDoNotSellList(string itemName)
         {
-            if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
-            {
-                wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
-                wManagerSetting.CurrentSetting.Save();
-            }
+            RemoveFromDoNotSellList(new List<string>() { itemName });
         }
 
         /// <summary>
@@ -66,17 +190,20 @@ namespace WholesomeToolbox
         /// <param name="itemNames"></param>
         public static void RemoveFromDoNotSellList(List<string> itemNames)
         {
-            bool settingsCHanged = false;
+            bool settingsChanged = false;
             foreach (string itemName in itemNames)
             {
+                if (string.IsNullOrEmpty(itemName)) continue;
+
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
+                    WTLogger.log($"Removing {item.Name} from DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
-                    settingsCHanged = true;
+                    settingsChanged = true;
                 }
             }
 
-            if (settingsCHanged)
+            if (settingsChanged)
             {
                 wManagerSetting.CurrentSetting.Save();
             }
