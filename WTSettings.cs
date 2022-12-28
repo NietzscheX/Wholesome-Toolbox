@@ -129,7 +129,7 @@ namespace WholesomeToolbox
 
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.Log($"Removing {item.Name} from DoNotMail list");
+                    WTLogger.Log($"Removing {itemName} from DoNotMail list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
                     settingsChanged = true;
                 }
@@ -197,7 +197,7 @@ namespace WholesomeToolbox
 
                 if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
                 {
-                    WTLogger.Log($"Removing {item.Name} from DoNotSell list");
+                    WTLogger.Log($"Removing {itemName} from DoNotSell list");
                     wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
                     settingsChanged = true;
                 }
