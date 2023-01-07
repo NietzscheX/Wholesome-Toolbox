@@ -1,9 +1,5 @@
 ﻿using robotManager.FiniteStateMachine;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WholesomeToolbox
 {
@@ -23,9 +19,7 @@ namespace WholesomeToolbox
         /// <param name="inPlaceOf"></param>
         public static void AddState(Engine engine, State state, string inPlaceOf)
         {
-            bool statedAdded = engine.States.Exists(s => s.DisplayName == state.DisplayName);
-
-            if (!statedAdded && engine != null)
+            if (engine != null && !engine.States.Exists(s => s.DisplayName == state.DisplayName))
             {
                 try
                 {
