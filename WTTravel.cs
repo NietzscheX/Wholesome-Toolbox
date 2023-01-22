@@ -1,4 +1,5 @@
 ﻿using robotManager.Helpful;
+using System.Collections.Generic;
 using System.Threading;
 using wManager.Wow.Bot.Tasks;
 using wManager.Wow.Helpers;
@@ -253,18 +254,27 @@ namespace WholesomeToolbox
             WTLogger.Log($"Exiting Deeprun Tram to Ironforge");
             Vector3 exitDRTram = new Vector3(66.81684, 9.562094, -4.297355, "None");
             Vector3 behindPortalDRtram = new Vector3(88.81684, 9.562094, -4.297355, "None");
-            if (ObjectManager.Me.Position.DistanceTo(exitDRTram) > 5)
+            GoToTask.ToPosition(new Vector3(-31.15954, 9.270159, -4.296772, "None"));
+            List<Vector3> pathToExit = new List<Vector3>()
             {
-                GoToTask.ToPosition(exitDRTram);
-            }
-            else
+                new Vector3(-31.15954, 9.270159, -4.296772, "None"),
+                new Vector3(-24.66254, -14.82159, -4.296772, "None"),
+                new Vector3(1.250042, -31.46965, -4.296772, "None"),
+                new Vector3(12.31108, -28.61945, -4.296772, "None"),
+                new Vector3(29.351, -12.86785, -4.296772, "None"),
+                new Vector3(34.80178, 7.057029, -4.296772, "None")
+            };
+            MovementManager.Go(pathToExit);
+            while (MovementManager.InMovement)
             {
-                Timer timer = new Timer(5000);
-                MovementManager.MoveTo(behindPortalDRtram);
-                while (!timer.IsReady && WTLocation.GetMinimapZoneText == "Deeprun Tram")
-                    Thread.Sleep(100);
-                MovementManager.StopMoveTo();
+                Thread.Sleep(100);
             }
+            GoToTask.ToPosition(exitDRTram);
+            Timer timer = new Timer(5000);
+            MovementManager.MoveTo(behindPortalDRtram);
+            while (!timer.IsReady && WTLocation.GetMinimapZoneText == "Deeprun Tram")
+                Thread.Sleep(100);
+            MovementManager.StopMoveTo();
         }
 
         /// <summary>
@@ -273,6 +283,24 @@ namespace WholesomeToolbox
         public static void TakeTramFromStormwindToIronforge()
         {
             WTLogger.Log($"Hopping on tramway to Ironforge");
+            Thread.Sleep(3000);
+            GoToTask.ToPosition(new Vector3(41.65182, 2491.9, -4.296054, "None"));
+            List<Vector3> pathToBay = new List<Vector3>()
+                    {
+                        new Vector3(41.65182, 2491.9, -4.296054, "None"),
+                        new Vector3(30.40927, 2515.263, -4.296054, "None"),
+                        new Vector3(18.96182, 2522.927, -4.296054, "None"),
+                        new Vector3(9.882978, 2533.491, -4.296054, "None"),
+                        new Vector3(-1.84776, 2532.08, -4.296054, "None"),
+                        new Vector3(-12.6678, 2521.064, -4.296054, "None"),
+                        new Vector3(-25.07464, 2513.938, -4.296054, "None"),
+                        new Vector3(-32.63285, 2494.558, -4.292125, "None")
+                    };
+            MovementManager.Go(pathToBay);
+            while (MovementManager.InMovement)
+            {
+                Thread.Sleep(100);
+            }
             GoToTask.ToPosition(bayTramStormwindToIronforge);
             if (ObjectManager.Me.Position.DistanceTo(bayTramStormwindToIronforge) < 4)
             {

@@ -16,7 +16,7 @@ namespace WholesomeToolbox
         /// <summary>
         /// Returns whether the complete quest button is visible in current gossip
         /// </summary>
-        public static bool QuestFrameCompleteQuestButtonIsVisible => Lua.LuaDoString<bool>("return GetClickFrame('QuestFrameCompleteQuestButton'):IsVisible() == 1");
+        public static bool QuestFrameCompleteQuestButtonIsVisible => Lua.LuaDoString<bool>("return GetClickFrame('QuestFrameCompleteQuestButton'):IsVisible() == 1 or QuestFrameCompleteQuestButton:IsVisible() == 1");
 
         /// <summary>
         /// Returns whether the accept quest button is visible in current gossip

@@ -271,6 +271,7 @@ namespace WholesomeToolbox
             // Sparksocket Minefield
             AddBlacklistZone(new Vector3(6084.664, -649.5412, 375.806), 50, ContinentId.Northrend);
             AddBlacklistZone(new Vector3(6037.082, -655.2501, 369.9831), 50, ContinentId.Northrend);
+
             wManagerSetting.CurrentSetting.Save();
         }
 
@@ -280,23 +281,48 @@ namespace WholesomeToolbox
         public static void AddRecommendedOffmeshConnections()
         {
             // Ratchet northern house
-            OffMeshConnections.Add(new OffMeshConnection(new List<Vector3>()
+            OffMeshConnection ratchetNorthernHouse = new OffMeshConnection(new List<Vector3>()
             {
                 new Vector3(-859.9623, -3757.758, 19.88704, "None"),
                 new Vector3(-847.8208, -3740.918, 22.26572, "None")
-            }, (int)ContinentId.Kalimdor, OffMeshConnectionType.Bidirectional, true));
+            }, (int)ContinentId.Kalimdor, OffMeshConnectionType.Bidirectional, true);
+            ratchetNorthernHouse.Name = "Ratchet northern house";
+            OffMeshConnections.Add(ratchetNorthernHouse);
+
+
             // Sporeggar house
-            OffMeshConnections.Add(new OffMeshConnection(new List<Vector3>()
+            OffMeshConnection sporeggarHouse = new OffMeshConnection(new List<Vector3>()
             {
                 new Vector3(206.3829, 8499.533, 24.57104, "None"),
                 new Vector3(194.8526, 8489.873, 27.46523, "None")
-            }, (int)ContinentId.Expansion01, OffMeshConnectionType.Bidirectional, true));
-            // Bootay bay water
-            OffMeshConnections.Add(new OffMeshConnection(new List<Vector3>()
+            }, (int)ContinentId.Expansion01, OffMeshConnectionType.Bidirectional, true);
+            sporeggarHouse.Name = "Sporeggar house";
+            OffMeshConnections.Add(sporeggarHouse);
+
+            // Booty bay water
+            OffMeshConnection bootyBayWater = new OffMeshConnection(new List<Vector3>()
             {
-                new Vector3(-14427.64, 462.951, -1.862247, "Swimming"),
-                new Vector3(-14439.08, 455.1722, 3.748821, "None")
-            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true));
+                new Vector3(-14418.96, 467.1775, -1.693841, "Swimming"),
+                new Vector3(-14428.78, 461.7385, -1.720309, "Swimming"),
+                new Vector3(-14435.47, 457.4826, 1.922136, "None"),
+                new Vector3(-14440.56, 453.897, 3.760475, "None")
+
+            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true);
+            bootyBayWater.Name = "Booty Bay water dock";
+            OffMeshConnections.Add(bootyBayWater);
+
+            // Booty Bay tunnel
+            OffMeshConnection bootyBayTunnel = new OffMeshConnection(new List<Vector3>()
+            {
+                new Vector3(-14319.32, 444.4599, 23.03997, "None"),
+                new Vector3(-14287.69, 431.7805, 33.14453, "None"),
+                new Vector3(-14274.26, 415.7346, 37.013, "None"),
+                new Vector3(-14279.38, 371.9503, 34.11408, "None"),
+                new Vector3(-14269.13, 350.0408, 32.38533, "None"),
+                new Vector3(-14241.96, 324.4074, 24.80441, "None")
+            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true);
+            bootyBayTunnel.Name = "Booty Bay tunnel";
+            OffMeshConnections.Add(bootyBayTunnel);
 
             OffMeshConnections.Save();
         }
