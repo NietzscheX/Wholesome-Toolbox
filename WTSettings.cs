@@ -246,6 +246,10 @@ namespace WholesomeToolbox
                 AddBlacklistZone(new Vector3(-452.84, -2650.76, 95.5209), 160, ContinentId.Kalimdor);
                 // BrackenWall Village
                 AddBlacklistZone(new Vector3(-3124.758, -2882.661, 34.73463), 130, ContinentId.Kalimdor);
+                // Camp Mojache
+                AddBlacklistZone(new Vector3(-4386.497, 178.2069, 26.19132), 160, ContinentId.Kalimdor);
+                // ?
+                AddBlacklistZone(new Vector3(-956.664, -3754.71, 5.33239), 160, ContinentId.Kalimdor);
             }
             // Drak'Tharon Keep
             AddBlacklistZone(new Vector3(4643.429, -2043.915, 184.1842), 200, ContinentId.Northrend);
