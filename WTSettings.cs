@@ -284,6 +284,17 @@ namespace WholesomeToolbox
         /// </summary>
         public static void AddRecommendedOffmeshConnections()
         {
+            // Mudsprocket inn
+            OffMeshConnection mudSprocketInn = new OffMeshConnection(new List<Vector3>()
+            {
+                new Vector3(-4587.525, -3172.762, 34.12373, "None"),
+                new Vector3(-4598.708, -3173.359, 38.11667, "None"),
+                new Vector3(-4609.436, -3172.845, 37.47055, "None"),
+                new Vector3(-4621.323, -3172.595, 34.81491, "None")
+            }, (int)ContinentId.Kalimdor, OffMeshConnectionType.Bidirectional, true);
+            mudSprocketInn.Name = "Mudsprocket Inn";
+            OffMeshConnections.Add(mudSprocketInn);
+
             // Ratchet northern house
             OffMeshConnection ratchetNorthernHouse = new OffMeshConnection(new List<Vector3>()
             {
@@ -292,7 +303,6 @@ namespace WholesomeToolbox
             }, (int)ContinentId.Kalimdor, OffMeshConnectionType.Bidirectional, true);
             ratchetNorthernHouse.Name = "Ratchet northern house";
             OffMeshConnections.Add(ratchetNorthernHouse);
-
 
             // Sporeggar house
             OffMeshConnection sporeggarHouse = new OffMeshConnection(new List<Vector3>()
