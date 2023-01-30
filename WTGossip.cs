@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using wManager.Wow.Helpers;
 
 namespace WholesomeToolbox
@@ -112,17 +113,19 @@ namespace WholesomeToolbox
         /// <param name="stackValue"></param>
         public static void BuyItem(string itemName, int amount, int stackValue)
         {
-            double numberOfStacksToBuy = Math.Ceiling(amount / (double)stackValue);
+            double numberOfStacksToBuy = (int)(Math.Ceiling(amount / (double)stackValue));
             WTLogger.Log($"Buying {amount} x {itemName}");
-            Lua.LuaDoString(string.Format(@"
-                    local itemName = ""{0}""
-                    local quantity = {1}
+            for (int  i = 0; i < numberOfStacksToBuy; i++)
+            {
+                Lua.LuaDoString($@"
                     for i=1, GetMerchantNumItems() do
                         local name = GetMerchantItemInfo(i)
-                        if name and name == itemName then 
-                            BuyMerchantItem(i, quantity)
+                        if name and name == ""{itemName}"" then 
+                            BuyMerchantItem(i, {numberOfStacksToBuy})
                         end
-                    end", itemName, (int)numberOfStacksToBuy));
+                    end");
+                Thread.Sleep(500);
+            }
         }
 
         /// <summary>
