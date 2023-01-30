@@ -121,7 +121,7 @@ namespace WholesomeToolbox
                     for i=1, GetMerchantNumItems() do
                         local name = GetMerchantItemInfo(i)
                         if name and name == ""{itemName}"" then 
-                            BuyMerchantItem(i, {numberOfStacksToBuy})
+                            BuyMerchantItem(i, 1)
                         end
                     end");
                 Thread.Sleep(500);
