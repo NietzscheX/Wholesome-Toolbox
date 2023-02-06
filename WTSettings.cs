@@ -127,10 +127,10 @@ namespace WholesomeToolbox
             {
                 if (string.IsNullOrEmpty(itemName)) continue;
 
-                if (wManagerSetting.CurrentSetting.DoNotSellList.Contains(itemName))
+                if (wManagerSetting.CurrentSetting.DoNotMailList.Contains(itemName))
                 {
                     WTLogger.Log($"Removing {itemName} from DoNotMail list");
-                    wManagerSetting.CurrentSetting.DoNotSellList.Remove(itemName);
+                    wManagerSetting.CurrentSetting.DoNotMailList.Remove(itemName);
                     settingsChanged = true;
                 }
             }
