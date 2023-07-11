@@ -284,6 +284,19 @@ namespace WholesomeToolbox
         /// </summary>
         public static void AddRecommendedOffmeshConnections()
         {
+            // Stormwind Shaman trainer
+            OffMeshConnection stormwindSHamanTrainer = new OffMeshConnection(new List<Vector3>()
+            {
+                new Vector3(-9066.789, 491.2493, 77.2879, "None"),
+                new Vector3(-9069.765, 502.1351, 75.52043, "None"),
+                new Vector3(-9072.339, 521.9012, 75.44707, "None"),
+                new Vector3(-9053.428, 538.2027, 69.75307, "Swimming"),
+                new Vector3(-9040.599, 548.6722, 73.39165, "None"),
+                new Vector3(-9033.188, 550.5007, 74.25293, "None"),
+            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true);
+            stormwindSHamanTrainer.Name = "Stormwind Shaman Trainer";
+            OffMeshConnections.Add(stormwindSHamanTrainer);
+
             // Mudsprocket inn
             OffMeshConnection mudSprocketInn = new OffMeshConnection(new List<Vector3>()
             {
@@ -292,8 +305,8 @@ namespace WholesomeToolbox
                 new Vector3(-4609.436, -3172.845, 37.47055, "None"),
                 new Vector3(-4621.323, -3172.595, 34.81491, "None")
             }, (int)ContinentId.Kalimdor, OffMeshConnectionType.Bidirectional, true);
-            mudSprocketInn.Name = "Mudsprocket Inn";
-            OffMeshConnections.Add(mudSprocketInn);
+            stormwindSHamanTrainer.Name = "Mudsprocket Inn";
+            OffMeshConnections.Add(stormwindSHamanTrainer);
 
             // Ratchet northern house
             OffMeshConnection ratchetNorthernHouse = new OffMeshConnection(new List<Vector3>()
