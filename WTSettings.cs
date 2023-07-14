@@ -284,6 +284,23 @@ namespace WholesomeToolbox
         /// </summary>
         public static void AddRecommendedOffmeshConnections()
         {
+            // Coilfang Reservoir swimming lesson
+            OffMeshConnection coilFangReservoirSwim = new OffMeshConnection(new List<Vector3>()
+            {
+                new Vector3(564.9803, 6942.765, 18.19887, "None"),
+                new Vector3(563.7997, 6945.904, -1.365609, "Swimming"),
+                new Vector3(565.6638, 6943.759, -23.56234, "Swimming"),
+                new Vector3(580.9793, 6937.858, -38.76087, "Swimming"),
+                new Vector3(596.7437, 6922.504, -45.74902, "Swimming"),
+                new Vector3(608.7668, 6900.296, -50.16422, "Swimming"),
+                new Vector3(629.8495, 6874.761, -72.83984, "Swimming"),
+                new Vector3(646.9658, 6865.802, -82.02721, "Swimming"),
+                new Vector3(680.5285, 6864.529, -80.76904, "Swimming")
+
+            }, (int)ContinentId.Azeroth, OffMeshConnectionType.Bidirectional, true);
+            coilFangReservoirSwim.Name = "Coilfang Reservoir Swim";
+            OffMeshConnections.Add(coilFangReservoirSwim);
+
             // Stormwind Shaman trainer
             OffMeshConnection stormwindSHamanTrainer = new OffMeshConnection(new List<Vector3>()
             {
