@@ -115,14 +115,13 @@ namespace WholesomeToolbox
         public static void BuyItem(string itemName, int amount, int stackValue)
         {
             double numberOfStacksToBuy = (int)(System.Math.Ceiling(amount / (double)stackValue));
-            WTLogger.Log($"Buying {amount} x {itemName}");
+            WTLogger.Log($"Buying {amount} x {itemName} ({numberOfStacksToBuy} stack(s) of {stackValue})");
             for (int  i = 0; i < numberOfStacksToBuy; i++)
             {
-                bool stackBoutght = Lua.LuaDoString<bool>($@"
+                bool stackBought = Lua.LuaDoString<bool>($@"
                         for i=1, GetMerchantNumItems() do
                             local name = GetMerchantItemInfo(i);
-                            local itemCount = GetItemCount(""{itemName}"", false, false);
-                            if name and name == ""{itemName}"" and itemCount < {amount} then 
+                            if name and name == ""{itemName}"" then 
                                 BuyMerchantItem(i, 1);
                                 return true;
                             end
@@ -130,7 +129,7 @@ namespace WholesomeToolbox
                         return false;
                     ");
 
-                if (stackBoutght)
+                if (stackBought)
                     Thread.Sleep(500);
             }
         }
